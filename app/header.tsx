@@ -11,7 +11,7 @@ export default function Header(){
             <nav className="flex gap-5">
                 <Link href="/work" className="hover:text-blue-500 transition">Work</Link>
                 <Link href="/about" className="hover:text-blue-500 transition">About</Link>
-                <Link href="/playground" className="hover:text-blue-500 transition">Playground</Link>
+                <Link href="/blog" className="hover:text-blue-500 transition">Blog</Link>
             </nav>
             <ThemeToggle />
         </header>
