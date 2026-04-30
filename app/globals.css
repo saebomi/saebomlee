@@ -7,3 +7,7 @@
 .logo{ 
     transform: rotate(90deg);
 }
+
+.footer{
+    background-color: darksalmon;
+}
