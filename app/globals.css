@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* globals.css */
+:root {
+  /* 헬베티카를 최우선으로 설정 */
+  --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-helvetica);
+  -webkit-font-smoothing: antialiased; /* 폰트를 더 매끄럽게 출력 (UX 엔지니어 팁) */
+}
 
 /*header*/
 .logo{ 
@@ -9,5 +19,5 @@
 }
 
 .footer{
-    background-color: darksalmon;
+    background-color: #FF4F39;
 }

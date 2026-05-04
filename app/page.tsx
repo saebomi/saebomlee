@@ -2,7 +2,8 @@
 
 import { useState } from 'react'; // useState 임포트 추가
 import Link from 'next/link';
-import Image from 'next/image'; // Image 임포트 추가
+import Image from 'next/image'; 
+import FadeIn from "../components/Fadein";
 
 // Work Data
 const projects = [
@@ -18,13 +19,17 @@ export default function Page() {
   return (
     <main className="flex flex-col min-h-screen px-6">
       <section className="flex flex-col justify-end h-[100vh]">
+        <FadeIn delay={0.3}>
         <p className="text-3xl font-bold leading-tight mb-4 tracking-tighter">
           6+ Years in Web UI/UX Engineering,<br />
           I build anything and everything digital. (And yes, I design them too.)<br /> 
         </p>
-        <h1 className="text-[16.8vw] font-black leading-none tracking-tighter uppercase">
+        </FadeIn>
+        <FadeIn delay={0.5}>
+        <h1 className="text-[16vw] font-black leading-none tracking-tighter uppercase">
           SAEBOM:LEE
-        </h1>
+        </h1>        
+        </FadeIn>
       </section>      
       {/* 컴포넌트 이름을 WorkList로 통일하여 호출 */}
       <WorkList />

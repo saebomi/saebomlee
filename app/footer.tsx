@@ -12,6 +12,7 @@ export default function Footer() {
               </Link>
             </p>
             <p className="">+82 10 99723551</p>
+            <p className="">+1 (929)2827397</p>
           </div>
           <div className="info__right">
             <p className="">
@@ -23,7 +24,7 @@ export default function Footer() {
           </div>
           
         </div>
-        <h1 className="text-[16.8vw] font-black leading-none tracking-tighter uppercase">
+        <h1 className="text-[16vw] font-black leading-none tracking-tighter uppercase">
             SAEBOM:LEE
           </h1>
         <div>© 2026 SAEBOMLEE</div>
