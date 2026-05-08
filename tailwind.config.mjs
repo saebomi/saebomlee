@@ -6,6 +6,7 @@ export default {
     "./page.tsx",
     "./layout.tsx",
   ],
+  darkMode: "class",
   theme: {
     extend: {},
   },

@@ -24,7 +24,7 @@ export default function Cursor() {
             }}
             transition={{
                 type: "tween",
-                damping: 50,    // 저항 (높을수록 덜 튕김)
+                damping: 100,    // 저항 (높을수록 덜 튕김)
                 stiffness: 500, // 강도 (높을수록 더 빨리 따라옴)
                 mass: 0.4,      // 질량 (낮을수록 가볍게 움직임)
             }}

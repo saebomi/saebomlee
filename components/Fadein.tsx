@@ -12,13 +12,14 @@ interface FadeInProps {
 export default function FadeIn({ children, delay = 0 }: FadeInProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }} // 시작 상태: 투명하고 50px 아래에 위치
-      whileInView={{ opacity: 1, y: 0 }} // 화면에 보일 때 상태: 불투명해지고 제자리로 이동
-      viewport={{ once: true, margin: "-10%" }} // 한 번만 실행, 화면 10% 지점에 들어왔을 때 시작
+      initial={{ opacity: 0, y: 60 }} // 시작 위치를 조금 더 아래로(50 -> 60) 내려서 이동감을 줍니다.
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-5%" }}
       transition={{ 
-        duration: 0.8, 
+        duration: 1.5, // 1.5초 동안 천천히 올라오도록 설정
         delay: delay, 
-        ease: [0.21, 0.47, 0.32, 0.98] // Neundex처럼 부드러운 커스텀 베지어 곡선
+        // 조금 더 무겁고 쫀득하게 멈추는 커스텀 베지어 곡선
+        ease: [0.16, 1, 0.3, 1]
       }}
     >
       {children}
