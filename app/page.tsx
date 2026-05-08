@@ -17,12 +17,12 @@ const heroObjects = [
 
 //main project data
 const projects = [
-  { id: "01", title: "Slim9 자사몰 서비스 고도화", tags: ["Develop", "UI/UX", "Website", "Mobile"], img: "/images/thum_01.png" },
-  { id: "02", title: "Slim9 자사몰 프로모션 페이지 UI개발", tags: ["Develop", "UI/UX", "Website"], img: "/images/thum_02.png" },
-  { id: "03", title: "LOUIS QUATORZE 직영몰 상시 퍼블리싱 업무", tags: ["Develop", "UI/UX", "Website"], img: "/images/thum_04.png" },
-  { id: "04", title: "Find your light 3 관련 웹페이지 제작", tags: ["Develop", "UI/UX", "Website"], img: "/images/thum_03.png" },
-  { id: "05", title: "LOUIS QUATORZE 직영몰 라이브커머스 방송 구축", tags: ["Develop", "UI/UX", "Website"], img: "/images/thum_05.png" },
-  { id: "06", title: "LOUIS QUATORZE 직영몰 프론트엔드 리뉴얼", tags: ["Develop", "UI/UX", "Website"], img: "/images/thum_lq.png" },
+  { id: "01", title: "Slim9 자사몰 서비스 고도화", tags: ["Develop", "UI/UX", "Website", "Mobile"], img: "/images/thumbnail/thum_01.png" },
+  { id: "02", title: "Slim9 자사몰 프로모션 페이지 UI개발", tags: ["Develop", "UI/UX", "Website"], img: "/images/thumbnail/thum_02.png" },
+  { id: "03", title: "LOUIS QUATORZE 직영몰 상시 퍼블리싱 업무", tags: ["Develop", "UI/UX", "Website"], img: "/images/thumbnail/thum_04.png" },
+  { id: "04", title: "Find your light 3 관련 웹페이지 제작", tags: ["Develop", "UI/UX", "Website"], img: "/images/thumbnail/thum_03.png" },
+  { id: "05", title: "LOUIS QUATORZE 직영몰 라이브커머스 방송 구축", tags: ["Develop", "UI/UX", "Website"], img: "/images/thumbnail/thum_05.png" },
+  { id: "06", title: "LOUIS QUATORZE 직영몰 프론트엔드 리뉴얼", tags: ["Develop", "UI/UX", "Website"], img: "/images/thumbnail/thum_lq.png" },
 ];
 
 export default function Page() {
