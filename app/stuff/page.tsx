@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from 'next/image';
 import { motion, AnimatePresence } from "framer-motion";
-import FadeIn from "/components/Fadein";
+import FadeIn from "../../components/Fadein";
 
 const stuffItems = [
   { id: 1, src: "/images/stuff/1.png", size: "small" },

@@ -5,27 +5,23 @@ import Link from "next/link";
 import ThemeToggle from "../components/modeToggle";
 
 export default function Header() {
-    const [isVisible, setIsVisible] = useState(true); // 헤더 표시 여부
-    const [lastScrollY, setLastScrollY] = useState(0); // 이전 스크롤 위치 기록
+    const [isVisible, setIsVisible] = useState(true); 
+    const [lastScrollY, setLastScrollY] = useState(0); 
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
 
-            // 1. 최상단(50px 미만)일 때는 항상 보이게 설정
             if (currentScrollY < 50) {
                 setIsVisible(true);
             } 
-            // 2. 아래로 스크롤 중일 때 헤더 숨김
             else if (currentScrollY > lastScrollY) {
                 setIsVisible(false);
             } 
-            // 3. 위로 스크롤 중일 때 헤더 나타남
             else {
                 setIsVisible(true);
             }
 
-            // 현재 스크롤 위치를 기록하여 다음 비교 때 사용
             setLastScrollY(currentScrollY);
         };
 

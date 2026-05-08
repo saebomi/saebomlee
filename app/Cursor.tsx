@@ -19,14 +19,14 @@ export default function Cursor() {
         <motion.div
             className="fixed top-0 left-0 w-8 h-8 bg-black rounded-full pointer-events-none z-[9999] mix-blend-difference"
             animate={{
-                x: mousePos.x - 16, // 원의 중심이 마우스 끝에 오도록 (반지름만큼 뺌)
+                x: mousePos.x - 16, 
                 y: mousePos.y - 16,
             }}
             transition={{
                 type: "spring",
-                damping: 20,    // 저항 (높을수록 덜 튕김)
-                stiffness: 250, // 강도 (높을수록 더 빨리 따라옴)
-                mass: 0.5,      // 질량 (낮을수록 가볍게 움직임)
+                damping: 20,    
+                stiffness: 250, 
+                mass: 0.5,     
             }}
         />
     );

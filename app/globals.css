@@ -10,7 +10,7 @@
 
 body {
   font-family: var(--font-helvetica);
-  -webkit-font-smoothing: antialiased; /* 폰트를 더 매끄럽게 출력 (UX 엔지니어 팁) */
+  -webkit-font-smoothing: antialiased; 
 }
 
 /*header*/

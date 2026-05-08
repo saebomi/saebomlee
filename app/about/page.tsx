@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import FadeIn from "/components/Fadein";
+import FadeIn from "../../components/Fadein";
+
 
 export default function About() {
   const experiences = [
@@ -109,18 +110,18 @@ export default function About() {
               <div className="text-sm font-current uppercase pb-6">
                 <p>세종대학교 조리서비스경영학과</p>
                 <p className="opacity-60">2023.03 - PRESENT</p>
-                <p className="opacity-60"></p>
+                <p className="opacity-60">조리서비스경영을 전공하며 사용자 중심의 서비스 마인드와 비즈니스 구조를 폭넓게 학습하고 있습니다.</p>
               </div>
               <div className="text-sm font-current uppercase pb-6">
                 <p>Pratt Institute - Creative Careers</p>
                 <p className="opacity-60">2026.01 - 2026.05</p>
-                <p className="opacity-60">국립국제교육원 주관 매년 선발하는 국비연수생(49기)으로 선발되어</p>
+                <p className="opacity-60">국립국제교육원 주관 국비연수생(49기)으로 선발되어, 뉴욕 Pratt Institute에서 디자인 트렌드와 글로벌 크리에이티브 역량을 쌓았습니다</p>
               </div>
 
               <div className="text-sm font-current uppercase pb-6">
                 <p>미림마이스터고등학교 뉴미디어솔루션과(프로그래밍)</p>
                 <p className="opacity-60">2016.03 - 2019.01</p>
-                <p className="opacity-60"></p>
+                <p className="opacity-60">미림마이스터고에서 프로그래밍을 전공했습니다.</p>
               </div>
             </div>
           </div>

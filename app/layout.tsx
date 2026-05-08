@@ -12,7 +12,7 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body>
-                <Cursor /> {/* 여기에 추가 */}
+                <Cursor /> 
                 <ThemeProvider attribute="class">
                     <Header />
                     <main>{children}</main>

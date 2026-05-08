@@ -28,7 +28,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/slim9/bg_01.jpg",
       img: ["/images/slim9/work_01.png"],
       video: "/video/video_01.mov",
-      mobile: ["/video/m_video_01.mov"] 
+      // mobile: ["/video/m_video_01.mov"] 
     },
      "02": {
       title: "Slim9 자사몰 프로모션 페이지 UI개발",
@@ -87,7 +87,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       ],
       tags: ["E-commerce", "Responsive Web", "2021-2023"],
       bg: "/images/lq/bg.jpg",
-      img: ["/images/lq/live_01.png","/images/lq/live_02.png"],
+      img: ["/images/lq/img_detail.png"],
     },
     "07": {
       title: "Closetshare UI 개선",
