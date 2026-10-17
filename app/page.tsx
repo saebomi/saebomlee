@@ -93,42 +93,44 @@ export default function Page() {
       >
         
         {/* 1. 상시 둥둥 뜨며 마우스에 따라 3D 틸트되는 메인 비주얼 */}
-        <FadeIn delay={0.2} className="flex-1 flex items-center justify-center my-auto">
-          <motion.div 
-            className="relative w-[60vw] h-[40vh] md:w-[45vw] md:h-[50vh] flex items-center justify-center mx-auto"
-            style={{
-              rotateX,
-              rotateY,
-              skewX,
-              skewY,
-              filter: "url(#super-water-wave)",
-              transformStyle: "preserve-3d",
-            }}
-            animate={{
-              y: isHovered ? [0, -8, 0, 8, 0] : [0, -14, 0, 14, 0], // 상시 둥둥 뜨는 움직임
-              scale: isHovered ? 1.05 : 1,
-            }}
-            transition={{
-              y: {
-                duration: isHovered ? 2.5 : 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              },
-              scale: {
-                duration: 0.4,
-                ease: "easeOut"
-              }
-            }}
-          >
-            <Image 
-              src="/images/main.png" 
-              alt="Main Visual"
-              fill
-              className="object-contain"
-              priority 
-            />
-          </motion.div>
-        </FadeIn>
+        <FadeIn delay={0.2}>
+  <div className="flex-1 flex items-center justify-center my-auto">
+    <motion.div 
+      className="relative w-[60vw] h-[40vh] md:w-[45vw] md:h-[50vh] flex items-center justify-center mx-auto"
+      style={{
+        rotateX,
+        rotateY,
+        skewX,
+        skewY,
+        filter: "url(#super-water-wave)",
+        transformStyle: "preserve-3d",
+      }}
+      animate={{
+        y: isHovered ? [0, -8, 0, 8, 0] : [0, -14, 0, 14, 0],
+        scale: isHovered ? 1.05 : 1,
+      }}
+      transition={{
+        y: {
+          duration: isHovered ? 2.5 : 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        },
+        scale: {
+          duration: 0.4,
+          ease: "easeOut"
+        }
+      }}
+    >
+      <Image 
+        src="/images/main.png" 
+        alt="Main Visual"
+        fill
+        className="object-contain"
+        priority 
+      />
+    </motion.div>
+  </div>
+</FadeIn>
 
         {/* 2. 하단 메인 메시지 */}
         <FadeIn delay={0.4}>
