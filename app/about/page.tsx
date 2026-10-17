@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "../../components/Fadein";
 
 
@@ -34,11 +33,11 @@ export default function About() {
 
   return (
     <section className="flex-1 mx-auto w-full px-6 py-36">
-      <FadeIn>
-        <h2 className="text-5xl font-black uppercase tracking-tighter mb-20 md:mb-32">
+      {/* <FadeIn>
+        <h2 className="text-5xl font-black uppercase tracking-tighter text-black mb-20 md:mb-32">
           About
         </h2>
-      </FadeIn>
+      </FadeIn> */}
 
       <div className="flex flex-col gap-24 md:gap-40">
         {/* 01. Intro Section */}
@@ -48,18 +47,23 @@ export default function About() {
               <h3 className="text-sm font-current uppercase">Intro</h3>
             </div> */}
             <div className="md:col-span-9">
-              <p className="text-base md:text-xl font-current tracking-tighter break-keep">
-                Digital. Anything. Everything. <br />
-                가능성을 현실로 만드는 7년차 UI/UX 개발자 이새봄입니다.<br />
-                인하우스와 스타트업을 거치며 사용자 중심의 인터페이스를 설계하고 구현해 왔습니다. <br />
-                최근에는 패션 이커머스 서비스 고도화를 주도하며, 복잡한 비즈니스 요구사항을 유연한 UI와 정교한 인터랙션으로 구현하는 데 집중하고 있습니다.
+              <p className="text-base md:text-xl font-current tracking-tighter break-keep text-black">
+              이새봄<br></br>
+              Web Design ✳︎ UI/UX ✳︎ Digital Experience<br></br><br></br>
+
+              안녕하세요, 패션과 라이프스타일 브랜드의 시각적 언어와 디지털 경험에 관심이 많습니다.<br></br>
+              일상 속에서 영감을 발견하고, 디자인의 작은 디테일을 관찰하며, 아이디어를 직접 구현하는 것을 즐깁니다.<br></br>
+              지난 6년간 웹 디자인부터 퍼블리싱, 프론트엔드 개발까지 다양한 웹 프로젝트를 경험하며 디자인과 기술을 연결해 왔습니다.<br></br>
+              브랜드의 개성을 감각적으로 표현하면서도 사용성과 기능을 놓치지 않는 것. <br></br>
+              시각적인 매력과 실질적인 가치가 자연스럽게 어우러지는 디지털 경험을 만들어 가고 있습니다.<br></br>
+              계속 배우고, 탐색하고, 만들어 가는 중입니다.
               </p>
             </div>
           </div>
         </FadeIn>
 
         <FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 text-black">
             <div className="md:col-span-2">
               <h3 className="text-sm font-black font-current uppercase">Experience</h3>
             </div>
@@ -73,7 +77,7 @@ export default function About() {
               </div>
 
               {/* List */}
-              <div className="flex flex-col gap-12 md:gap-8">
+              <div className="flex flex-col gap-12 md:gap-8 text-black">
                 {experiences.map((exp, idx) => (
                   <div key={idx} className="grid grid-cols-1 md:grid-cols-4 text-sm font-current  gap-2 md:gap-0">
                     <div>
@@ -102,26 +106,26 @@ export default function About() {
         </FadeIn>
 
         <FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 text-black">
             <div className="md:col-span-2">
               <h3 className="text-sm font-black font-current uppercase">Education</h3>
             </div>
             <div className="md:col-span-9">
               <div className="text-sm font-current uppercase pb-6">
                 <p>세종대학교 조리서비스경영학과</p>
-                <p className="opacity-60">2023.03 - PRESENT</p>
-                <p className="opacity-60">조리서비스경영을 전공하며 사용자 중심의 서비스 마인드와 비즈니스 구조를 폭넓게 학습하고 있습니다.</p>
+                <p className="opacity-60">2023.03 - 2027.08(졸업예정)</p>
+                <p className="opacity-60">조리서비스경영을 전공하며 서비스 운영 및 경영 전반에 대한 이해를 넓히고 있습니다.<br></br>고객 중심의 서비스 설계와 비즈니스 구조를 학습하며, 사용자 관점에서 서비스를 이해하고 개선하는 시각을 기르고 있습니다.</p>
               </div>
               <div className="text-sm font-current uppercase pb-6">
                 <p>Pratt Institute - Creative Careers</p>
                 <p className="opacity-60">2026.01 - 2026.05</p>
-                <p className="opacity-60">국립국제교육원 주관 국비연수생(49기)으로 선발되어, 뉴욕 Pratt Institute에서 디자인 트렌드와 글로벌 크리에이티브 역량을 쌓았습니다</p>
+                <p className="opacity-60">국립국제교육원 주관 국비연수생 49기로 선발되어 뉴욕 Pratt Institute의 Creative Careers 프로그램에 참여했습니다.<br></br>그래픽 디자인, 디지털 디자인 및 크리에이티브 분야의 실습을 통해 디자인 역량을 확장하고, 글로벌 디자인 트렌드와 다양한 시각적 접근 방식을 경험했습니다.</p>
               </div>
 
               <div className="text-sm font-current uppercase pb-6">
                 <p>미림마이스터고등학교 뉴미디어솔루션과(프로그래밍)</p>
                 <p className="opacity-60">2016.03 - 2019.01</p>
-                <p className="opacity-60">미림마이스터고에서 프로그래밍을 전공했습니다.</p>
+                <p className="opacity-60">프로그래밍을 전공하며 웹 개발의 기초와 프로그래밍 역량을 쌓았습니다.<br></br>웹 기술과 코드에 대한 이해를 바탕으로 디지털 환경에서 아이디어를 실제 화면과 기능으로 구현하는 기초를 다졌습니다.</p>
               </div>
             </div>
           </div>

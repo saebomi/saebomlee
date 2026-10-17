@@ -16,9 +16,8 @@ export default function FadeIn({ children, delay = 0 }: FadeInProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-5%" }}
       transition={{ 
-        duration: 1.5, // 1.5초 동안 천천히 올라오도록 설정
+        duration: 1.5,
         delay: delay, 
-        // 조금 더 무겁고 쫀득하게 멈추는 커스텀 베지어 곡선
         ease: [0.16, 1, 0.3, 1]
       }}
     >

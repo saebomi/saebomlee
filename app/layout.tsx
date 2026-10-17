@@ -13,7 +13,7 @@ export default function RootLayout({
         <html lang="ko">
             <body>
                 <Cursor /> 
-                <ThemeProvider attribute="class">
+                <ThemeProvider>
                     <Header />
                     <main>{children}</main>
                     <Footer />

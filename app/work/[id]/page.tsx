@@ -16,7 +16,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
   const { id } = await params;
 
   const projectData: { [key: string]: ProjectInfo } = {
-    "01": {
+    "04": {
       title: "Slim9 자사몰 서비스 고도화 및 인프라 관리",
       description: [
         "여성 언더웨어 브랜드 Slim9의 자사몰 UI/UX 개발 및 운영을 담당하며, 사용자 데이터 기반의 서비스 고도화를 이끌었습니다.",
@@ -30,7 +30,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       video: "/video/video_01.mov",
       // mobile: ["/video/m_video_01.mov"] 
     },
-     "02": {
+     "05": {
       title: "Slim9 자사몰 프로모션 페이지 UI개발",
       description: [
         "여성 언더웨어 브랜드 'Slim9'의 자사몰 신규 브릿지 페이지 및 프로모션 페이지 개발, 라이브 연동, 개발 가이드를 수립하여 작업 효율을 높였습니다."
@@ -41,12 +41,25 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       video: "/video/video_02.mov",
       mobile: ["/video/m_work_01.mov", "/video/m_work_02.mov", "/video/m_work_03.mov"]
     },
-    "03": {
+     "03": {
+      title: "Stripes 온라인몰 프론트엔드 전면 개편",
+      description: [
+        "Vue.js 및 Vuetify 기반 온라인몰 프론트엔드 개발을 진행했습니다.",
+        "주요 서비스 화면 및 재사용 가능한 UI 웹디자인을 담당했습니다.",
+      ],
+      tags: ["E-commerce", "Responsive Web", "2021-2023"],
+      bg: "/images/lq/bg.jpg",
+      img: ["/images/lq/stripes.jpg"],
+      // video: "/video/lq/video_01.mov",
+      // mobile: ["/video/lq/video_02.mov"] 
+    },
+    "01": {
       title: "LOUIS QUATORZE 직영몰 상시 퍼블리싱 업무",
       description: [
         "LOUIS QUATORZE 직영몰의 퍼블리싱 파트를 맡아 다수의 기획전 및 이벤트 페이지 UI를 구축했습니다.",
         "동적인 웹 인터랙션을 통해 브랜드 메시지를 효과적으로 전달했으며, 배포 단계에서의 UI QA와 피드백 반영을 통해 서비스의 완성도를 높였습니다.",
         "타 부서와 협업을 통해 디자인 의도를 정밀하게 코드로 구현함과 동시에 유지보수 효율을 고려한 구조적인 마크업을 수행했습니다.",
+        "https://stylelq.github.io/"
       ],
       tags: ["E-commerce", "Responsive Web", "2021-2023"],
       bg: "/images/lq/bg.jpg",
@@ -54,7 +67,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       video: "/video/lq/video_01.mov",
       // mobile: ["/video/lq/video_02.mov"] 
     },
-     "04": {
+     "02": {
       title: "Find your light 3 관련 웹페이지 제작",
       description: [
         "LOUIS QUATORZE에서 진행된 'Find your light 3' 프로젝트의 퍼블리싱 업무를 수행했습니다.",
@@ -67,7 +80,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       img: ["/images/lq/work_01.png"],
       video: "/video/lq/video_01.mov",
     },
-     "05": {
+     "06": {
       title: "LOUIS QUATORZE 직영몰 라이브커머스 방송 구축",
       description: [
         "브랜드 직영몰의 라이브 커머스 서비스 구축을 위해 목록, 예약 상세, 플레이어 페이지의 퍼블리싱 전반을 담당했습니다.",
@@ -78,7 +91,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/lq/bg.jpg",
       img: ["/images/lq/live_01.png","/images/lq/live_02.png"],
     },
-    "06": {
+    "07": {
       title: "LOUIS QUATORZE 직영몰 프론트엔드 리뉴얼",
       description: [
         "브랜드 직영몰 프론트 개편을 위해 웹 표준을 준수하는 마크업과 JavaScript 모듈화 및 원본 소스 관리 체계를 구축했습니다.",
@@ -89,7 +102,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/lq/bg.jpg",
       img: ["/images/lq/img_detail.png"],
     },
-    "07": {
+    "08": {
       title: "Closetshare UI 개선",
       description: [
         "플랫폼의 모바일 UI 개선을 전담하며, 카테고리 확장에 최적화된 사용자 경험과 지속 가능한 개발 환경을 구축했습니다.",
@@ -99,7 +112,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/closetshare/bg.jpg",
       img: ["/images/closetshare/img_01.jpg","/images/closetshare/img_02.jpg","/images/closetshare/img_03.jpg","/images/closetshare/img_04.jpg","/images/closetshare/img_05.jpg","/images/closetshare/img_06.jpg","/images/closetshare/img_07.jpg"],
     },
-    "08": {
+    "09": {
       title: "한림기술 홈페이지 리뉴얼 제작",
       description: [
         "한림기술과 세이콘으로 분리 운영되던 기존 사이트의 콘텐츠를 통합하여, 브랜드 정체성을 일원화한 리뉴얼 홈페이지를 구축했습니다.",
@@ -109,7 +122,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/hanlim/bg.jpg",
       img: ["/images/hanlim/img_02.jpg"],
     },
-    "09": {
+    "10": {
       title: "가온평생교육원 홈페이지 유지보수",
       description: [
         "가온평생교육원 홈페이지의 정기적인 콘텐츠 업데이트를 수행하며 교육 서비스 운영의 안정성을 지원했습니다.",
@@ -119,7 +132,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/gaon/bg.jpg",
       img: ["/images/gaon/img_01.jpg"],
     },
-    "10": {
+    "11": {
       title: "아기세탁소 홈페이지 제작",
       description: [
         "아기세탁소의 브랜드 홈페이지 윕 퍼블리싱 전반을 담당했습니다.",
@@ -128,7 +141,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/laundry/bg.jpg",
       img: ["/images/laundry/img_01.jpg"],
     },
-    "11": {
+    "12": {
       title: "모든상사 쇼핑몰 제작",
       description: [
         "카페24 플랫폼을 기반으로 모든상사 쇼핑몰의 스킨 제작 및 웹 퍼블리싱 전반을 수행했습니다."
@@ -137,7 +150,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/moden/bg.jpg",
       img: ["/images/moden/img_01.jpg"],
     },
-    "12": {
+    "13": {
       title: "파르베성형외과 홈페이지 리뉴얼",
       description: [
         "기존 웹사이트 분석을 바탕으로 리뉴얼 기획 초안을 수립하고, 대구 파르베 성형외과 홈페이지의 주요 진료 및 게시판 페이지 퍼블리싱을 전담했습니다.",
@@ -148,7 +161,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/farbe/bg.jpg",
       img: ["/images/farbe/img_01.jpg"],
     },
-    "13": {
+    "14": {
       title: "유림이엔씨 홈페이지 유지보수",
       description: [
         "유림이엔씨의 웹사이트 운영을 담당하며, 신규 주택 사업 정보 업데이트와 팝업 관리 등 유지보수를 수행했습니다.",
@@ -157,7 +170,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/yulim/bg.jpg",
       img: ["/images/yulim/img_01.jpg"],
     },
-    "14": {
+    "15": {
       title: "셀럽성형외과 홈페이지 제작",
       description: [
         "셀럽성형외과 홈페이지 리뉴얼 프로젝트에서 웹 퍼블리싱 전반을 담당했습니다.",
@@ -168,7 +181,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/celuv/bg.jpg",
       img: ["/images/celuv/img_01.jpg"],
     },
-    "15": {
+    "16": {
       title: "CDS 홈페이지 제작",
       description: [
         "다양한 입점 브랜드 소개 및 홍보를 위한 CDS 공식 홈페이지의 웹 퍼블리싱을 담당했습니다."
@@ -177,7 +190,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/cds/bg.jpg",
       img: ["/images/cds/img_01.jpg"],
     },
-    "16": {
+    "17": {
       title: "대구패션문화페스티벌 홈페이지 제작",
       description: [
         "2019 대구국제패션문화페스티벌 행사 홍보를 위한 홈페이지 리뉴얼 퍼블리싱을 전담했습니다.",
@@ -187,7 +200,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/difacul/bg.jpg",
       img: ["/images/difacul/img_01.jpg"],
     }, 
-    "17": {
+    "18": {
       title: "평해노인요양원 홈페이지 제작",
       description: [
         "평해노인요양원의 신규 홈페이지 제작 프로젝트에 참여하여 서비스 안내 및 시설 소개를 위한 주요 서브 페이지 퍼블리싱을 담당했습니다.",
@@ -197,7 +210,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       bg: "/images/sanatorium/bg.jpg",
       img: ["/images/sanatorium/img_01.jpg"],
     }, 
-    "18": {
+    "19": {
       title: "호숫가힐튼펜션 홈페이지 제작",
       description: [
         "호숫가힐튼펜션의 홍보 및 예약 활성화를 위해 워드프레스를 활용한 최적화된 웹사이트를 구축했습니다.",
@@ -241,7 +254,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                 </span>
               ))}
             </div>
-            <h1 className="text-5xl md:text-4xl font-black mb-8 tracking-tighter leading-[0.9] break-keep">
+            <h1 className="text-5xl md:text-4xl font-black mb-8 tracking-tighter leading-[0.9] break-keep text-black">
               {project.title}
             </h1>
             <div className="text-lg md:text-xl leading-relaxed text-current space-y-4 break-keep">
@@ -249,7 +262,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                 const isLink = line.startsWith("http");
 
                 return (
-                  <p key={index} className="text-lg leading-relaxed break-keep">
+                  <p key={index} className="text-lg leading-relaxed break-keep text-black">
                     {isLink ? (
                       <a 
                         href={line} 
@@ -271,7 +284,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
 
         {/* 비디오가 있을 때만 렌더링 */}
           {project.video && (
-            <div className="w-full shadow-2xl rounded-lg overflow-hidden bg-black mb-20">
+            <div className="w-full shadow-2xl rounded-lg overflow-hidden mb-20">
               <video
                 src={project.video}
                 autoPlay

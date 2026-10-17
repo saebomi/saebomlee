@@ -2,17 +2,17 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="px-6 footer">
+    <footer className="px-6 pb-6 footer">
       <div className="bottom flex flex-col justify-end h-[100vh]">
         <div className="info flex justify-between">
           <div className="info__left">
             <p className="">lsbbom@gmail.com</p>
             <p className="">+82 10 99723551</p>
-            <p className="">+1 (929)2827397</p>
+            {/* <p className="">+1 (929)2827397</p> */}
           </div>
           <div className="info__right">
             <p className="">
-              <Link href="https://www.linkedin.com/in/saebomlee2" target="_blank">Linkedin</Link>
+              <Link href="https://www.linkedin.com/in/sbleee" target="_blank">Linkedin</Link>
             </p>
             {/* <p className="">
               <Link href="" target="_blank">Resume</Link>
@@ -20,10 +20,10 @@ export default function Footer() {
           </div>
           
         </div>
-        <h1 className="text-[16vw] font-black leading-none tracking-tighter uppercase">
-            SAEBOM:LEE
+        <h1 className="text-[7vw] font-black leading-none tracking-tighter uppercase">
+            Let’s build something<br></br>digital together!
           </h1>
-        <div>© 2026 SAEBOMLEE</div>
+        {/* <div>© 2026 SAEBOMLEE</div> */}
       </div>
     </footer>
   );
