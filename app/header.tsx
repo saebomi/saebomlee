@@ -26,25 +26,35 @@ export default function Header() {
 
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollY]); // lastScrollY가 바뀔 때마다 실행
+    }, [lastScrollY]);
 
     return (
         <header 
-            className={`fixed w-full flex justify-between items-center z-50 px-6 pt-5 pb-5 
-                ${isVisible ? "translate-y-0" : "-translate-y-full"}`} 
+            className={`fixed top-0 left-0 w-full flex justify-between items-center z-50 px-6 md:px-6 py-6 bg-white/80 backdrop-blur-md transition-transform duration-300 ease-in-out ${
+                isVisible ? "translate-y-0" : "-translate-y-full"
+            }`} 
         >
-            <div className="font-bold text-xl">
-                <Link href="/" className="text-gray-800">Saebom Lee</Link>
+            <div className="flex items-center gap-4">
+                <Link href="/" className="text-2xl md:text-4xl font-black tracking-tighter uppercase text-black hover:opacity-70 transition-opacity">
+                    Saebom Lee
+                </Link>
+                {/* <span className="hidden sm:inline-block text-xs font-mono uppercase tracking-widest text-zinc-400 border-l border-zinc-300 pl-4 py-0.5">
+                    Studio / Kr
+                </span> */}
             </div>
             
-            <nav className="flex gap-5 font-medium">
-                <Link href="/work" className="text-gray-800 uppercase text-base">Work</Link>
-                <Link href="/about" className="text-gray-800 transition-colors uppercase text-base">About</Link>
-                {/* <a href="mailto:lsbbom@gmail.com" className="text-gray-800 transition-colors uppercase text-base">Contact</a> */}
-                {/* <Link href="/stuff" className="text-gray-800 transition-colors uppercase text-base">Stuff</Link> */}
+            {/* 시원하게 잘 보이는 굵은 네비게이션 */}
+            <nav className="flex items-center gap-8 md:gap-12 font-black text-base md:text-xl tracking-tight">
+                <Link href="/work" className="group text-black uppercase transition-colors flex items-center gap-2">
+                    <span>WORK</span>
+                </Link>
+                <Link href="/about" className="group text-black uppercase transition-colors flex items-center gap-2">
+                    <span>ABOUT</span>
+                </Link>
+                <a href="mailto:lsbbom@gmail.com" className="group text-black uppercase transition-colors hidden sm:flex items-center gap-2">
+                    <span>CONTACT</span>
+                </a>
             </nav>
-
-            {/* <ThemeToggle /> */}
         </header>
     );
 }

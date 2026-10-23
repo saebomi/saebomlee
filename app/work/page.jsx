@@ -22,12 +22,12 @@ const projects = [
     tags: ["E-commerce", "2022"],
     img: "/images/thumbnail/thum_03.png"
   },
-  {
-    id: "03", 
-    title: "Stripes 온라인몰 프론트엔드 개발 및 웹디자인", 
-    tags: ["E-commerce", "2022"],
-    img: "/images/lq/stripes.jpg"
-  },
+  // {
+  //   id: "03", 
+  //   title: "Stripes 온라인몰 프론트엔드 개발 및 웹디자인", 
+  //   tags: ["E-commerce", "2022"],
+  //   img: "/images/lq/stripes.jpg"
+  // },
   {
     id: "04", 
     title: "Slim9 자사몰 서비스 고도화", 

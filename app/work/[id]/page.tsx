@@ -7,7 +7,7 @@ interface ProjectInfo {
   description: string[];
   tags: string[];
   bg: string;
-  img: string[];
+  img?: string[]; // img 필드를 선택(optional) 값으로 수정
   video?: string;
   mobile?: string[];
 }
@@ -30,14 +30,13 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       video: "/video/video_01.mov",
       // mobile: ["/video/m_video_01.mov"] 
     },
-     "05": {
+    "05": {
       title: "Slim9 자사몰 프로모션 페이지 UI개발",
       description: [
-        "여성 언더웨어 브랜드 'Slim9'의 자사몰 신규 브릿지 페이지 및 프로모션 페이지 개발, 라이브 연동, 개발 가이드를 수립하여 작업 효율을 높였습니다."
+        "여성 언더웨어 브랜드 'Slim9'의 자사몰 신규 브릿지 페이지 및 프로모션 페이지 개발, 라이브 연동, 개발 가이드를 수립하여 작업 효율을 높였습니다.",
       ],
       tags: ["Website", "E-commerce", "Cafe24", "2023-2025"],
       bg: "/images/slim9/bg_01.jpg",
-      img: ["/images/slim9/work_01.png"],
       video: "/video/video_02.mov",
       mobile: ["/video/m_work_01.mov", "/video/m_work_02.mov", "/video/m_work_03.mov"]
     },
@@ -77,7 +76,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       ],
       tags: ["E-commerce", "Responsive Web", "2021-2023"],
       bg: "/images/lq/bg.jpg",
-      img: ["/images/lq/work_01.png"],
+      img: ["/images/lq/work_01.webp"],
       video: "/video/lq/video_01.mov",
     },
      "06": {
@@ -283,47 +282,50 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
         </div>
 
         {/* 비디오가 있을 때만 렌더링 */}
-          {project.video && (
-            <div className="w-full shadow-2xl rounded-lg overflow-hidden mb-20">
-              <video
-                src={project.video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-auto"
-              />
-            </div>
-          )}
+        {project.video && (
+          <div className="w-full shadow-2xl rounded-lg overflow-hidden mb-20">
+            <video
+              src={project.video}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto"
+            />
+          </div>
+        )}
 
-          {project.mobile && (
-            <div className="mo-video w-xl flex gap-4">
-              {project.mobile.map((videoSrc, index) => (
-              <video
-                key={index}
-                src={videoSrc}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="max-w-xl shadow-2xl rounded-lg overflow-hidden"
-              />
-              ))}
-            </div>
-          )}
-        {/* 상세 작업물 이미지 (img) */}
-        <div className="w-full shadow-2xl rounded-lg overflow-hidden bg-gray-50">    
-          {project.img.map((imgSrc, index) => (
-          <Image 
-            key={index}
-            src={imgSrc}
-            alt={`${project.title} Detail`}
-            width={1200}  
-            height={2000} 
-            className="w-full h-auto"
-          />
-          ))}
-        </div>
+        {project.mobile && (
+          <div className="mo-video w-xl flex gap-4 mb-20">
+            {project.mobile.map((videoSrc, index) => (
+            <video
+              key={index}
+              src={videoSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="max-w-xl shadow-2xl rounded-lg overflow-hidden"
+            />
+            ))}
+          </div>
+        )}
+
+        {/* 상세 작업물 이미지 (img) - img가 존재할 때만 렌더링하도록 조건 추가 */}
+        {project.img && project.img.length > 0 && (
+          <div className="w-full shadow-2xl rounded-lg overflow-hidden bg-gray-50">    
+            {project.img.map((imgSrc, index) => (
+            <Image 
+              key={index}
+              src={imgSrc}
+              alt={`${project.title} Detail`}
+              width={1200}  
+              height={2000} 
+              className="w-full h-auto"
+            />
+            ))}
+          </div>
+        )}
 
       </main>
     </div>
