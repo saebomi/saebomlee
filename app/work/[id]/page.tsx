@@ -62,7 +62,6 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
       ],
       tags: ["E-commerce", "Responsive Web", "2021-2023"],
       bg: "/images/lq/bg.jpg",
-      img: ["/images/lq/work_01.png"],
       video: "/video/lq/video_01.mov",
       // mobile: ["/video/lq/video_02.mov"] 
     },
