@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-// import Header from "@/components/header";
+import Header from "../../components/header";
 
 // 프로젝트 데이터셋
 const projects = [
