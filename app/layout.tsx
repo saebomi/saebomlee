@@ -1,4 +1,4 @@
-import Header from "../components/header";
+import Header from "@/components/header";
 import Footer from "./footer";
 import "./globals.css"
 import { ThemeProvider } from "next-themes";
