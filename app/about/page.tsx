@@ -1,6 +1,6 @@
 "use client";
 
-import FadeIn from "../../components/Fadein";
+import FadeIn from "../components/Fadein";
 
 
 export default function About() {

@@ -1,23 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation"; // 쿼리 파라미터 읽기용 임포트
-// import Header from "../components/header";
+import Header from "../components/header";
 
 const projects = [
   { 
     id: "01", 
-    title: "Slim9 자사몰 서비스 고도화 및 인프라 관리", 
-    category: "E-Commerce",
-    location: "Seoul, Korea",
-    year: "2023-2025",
-    status: "Selected",
-    img: "/images/slim9/img_p_00.jpg" 
-  },
-  { 
-    id: "02",  
     title: "LOUIS QUATORZE 직영몰 웹퍼블리싱", 
     category: "E-Commerce",
     location: "Seoul, Korea",
@@ -26,13 +17,22 @@ const projects = [
     img: "/images/lq/img_thum_01.jpg" 
   },
   { 
-    id: "03", 
+    id: "02",  
     title: "LOUIS QUATORZE 캠페인페이지 제작", 
     category: "Campaign",
     location: "Seoul, Korea",
     year: "2021-2023",
     status: "Selected",
     img: "/images/thumbnail/thum_03.png" 
+  },
+  { 
+    id: "03", 
+    title: "Slim9 자사몰 서비스 고도화 및 인프라 관리", 
+    category: "E-Commerce",
+    location: "Seoul, Korea",
+    year: "2023-2025",
+    status: "Selected",
+    img: "/images/slim9/img_p_00.jpg" 
   },
   { 
     id: "04", 
@@ -162,11 +162,11 @@ const projects = [
   },
 ];
 
-export default function Page() {
+function MainContent() {
   const searchParams = useSearchParams();
   const urlFilter = searchParams.get("filter") as "All" | "Selected";
 
-  // URL 쿼리에 'filter=All'이 있으면 초기값을 'All'로 설정, 없으면 'Selected'
+  // URL 쿼리에 'filter=All' 또는 'filter=Selected'가 있으면 그에 맞춰 초기값 설정
   const [filter, setFilter] = useState<"All" | "Selected">(urlFilter || "Selected");
 
   // URL 쿼리가 변경될 때 상태 동기화
@@ -208,7 +208,7 @@ export default function Page() {
             {filteredProjects.map((project) => (
               <Link
                 key={project.id}
-                href={`/work/${project.id}`}
+                href={`/work/${project.id}?filter=${filter}`}
                 className="group flex flex-col space-y-4"
               >
                 <div className="relative w-full aspect-[4/3] bg-zinc-100 rounded-[2rem] overflow-hidden shadow-xs group-hover:shadow-xl transition-all duration-500">
@@ -241,5 +241,14 @@ export default function Page() {
         </section>
       </main>
     </>
+  );
+}
+
+// Next.js App Router에서 useSearchParams를 사용할 때는 <Suspense>로 감싸주어야 빌드 에러가 나지 않습니다.
+export default function Page() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <MainContent />
+    </Suspense>
   );
 }
