@@ -330,7 +330,7 @@ module.exports = require("util");
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/next-themes"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fwork%2F%5Bid%5D%2Fpage&page=%2Fwork%2F%5Bid%5D%2Fpage&appPaths=%2Fwork%2F%5Bid%5D%2Fpage&pagePath=private-next-app-dir%2Fwork%2F%5Bid%5D%2Fpage.tsx&appDir=%2FUsers%2Fsaebomlee%2FDesktop%2Fleesaebom%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fsaebomlee%2FDesktop%2Fleesaebom&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!")));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/next-themes","vendor-chunks/@swc"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fwork%2F%5Bid%5D%2Fpage&page=%2Fwork%2F%5Bid%5D%2Fpage&appPaths=%2Fwork%2F%5Bid%5D%2Fpage&pagePath=private-next-app-dir%2Fwork%2F%5Bid%5D%2Fpage.tsx&appDir=%2FUsers%2Fsaebomlee%2FDesktop%2Fleesaebom%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fsaebomlee%2FDesktop%2Fleesaebom&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!")));
 module.exports = __webpack_exports__;
 
 })();

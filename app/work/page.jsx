@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Header from "@/components/header";
+import Header from "../components/header";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "/components/Fadein";
