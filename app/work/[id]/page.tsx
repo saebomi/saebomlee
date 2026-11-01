@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from 'next/image';
-import Header from "../../../components/header"; 
+import Header from "../../header"; 
 
 interface ProjectInfo {
   title: string;
