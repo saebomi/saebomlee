@@ -1,297 +1,245 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import FadeIn from "../components/Fadein";
+import { useSearchParams } from "next/navigation"; // 쿼리 파라미터 읽기용 임포트
+import Header from "../components/header";
 
-// data
-  const projects = [
+const projects = [
   { 
-    id: "01",  
-    title: "LOUIS QUATORZE 직영몰 상시 퍼블리싱", 
-    tags: ["Develop / UI/UX / Website"], 
-    img: "/images/thumbnail/thum_04.png" 
+    id: "01", 
+    title: "Slim9 자사몰 서비스 고도화 및 인프라 관리", 
+    category: "E-Commerce",
+    location: "Seoul, Korea",
+    year: "2023-2025",
+    status: "Selected",
+    img: "/images/slim9/img_p_00.jpg" 
   },
   { 
-    id: "02", 
-    title: "FIND YOUR LIGHT 3 캠페인 웹페이지 개발", 
-    tags: ["Develop / UI/UX / Website"], 
+    id: "02",  
+    title: "LOUIS QUATORZE 직영몰 웹퍼블리싱", 
+    category: "E-Commerce",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "Selected",
+    img: "/images/lq/img_thum_01.jpg" 
+  },
+  { 
+    id: "03", 
+    title: "LOUIS QUATORZE 캠페인페이지 제작", 
+    category: "Campaign",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "Selected",
     img: "/images/thumbnail/thum_03.png" 
   },
   { 
+    id: "04", 
+    title: "Stripes 온라인몰 프론트엔드 전면 개편", 
+    category: "E-Commerce",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "Selected",
+    img: "/images/lq/img_thum_02.jpg" 
+  },
+  { 
+    id: "05", 
+    title: "LOUIS QUATORZE 직영몰 라이브커머스 방송 구축", 
+    category: "Interactive",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "Selected",
+    img: "/images/lq/live_01.png" 
+  },
+  { 
     id: "06", 
-    title: "LOUIS QUATORZE 직영몰 라이브커머스 웹페이지 개발", 
-    tags: ["Develop / UI/UX / Website"], 
-    img: "/images/thumbnail/thum_05.png" 
+    title: "Closetshare UI 개선", 
+    category: "UI/UX",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/thumbnail/thum_cs.png" 
   },
   { 
     id: "07", 
-    title: "LOUIS QUATORZE 직영몰 프론트엔드 리뉴얼", 
-    tags: ["Develop / UI/UX / Website"], 
-    img: "/images/thumbnail/thum_lq.png" 
+    title: "한림기술 홈페이지 리뉴얼 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/thumbnail/thum_sacon.png" 
+  },
+  { 
+    id: "08", 
+    title: "가온평생교육원 홈페이지 유지보수", 
+    category: "Maintenance",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/gaon/img_01.jpg" 
+  },
+  { 
+    id: "09", 
+    title: "아기세탁소 홈페이지 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/laundry/img_01.jpg" 
+  },
+  { 
+    id: "10", 
+    title: "모든상사 쇼핑몰 제작", 
+    category: "E-Commerce",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/moden/img_01.jpg" 
+  },
+  { 
+    id: "11", 
+    title: "파르베성형외과 홈페이지 리뉴얼", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/farbe/img_01.jpg" 
+  },
+  { 
+    id: "12", 
+    title: "유림이엔씨 홈페이지 유지보수", 
+    category: "Maintenance",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/yulim/img_01.jpg" 
+  },
+  { 
+    id: "13", 
+    title: "셀럽성형외과 홈페이지 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/celuv/img_01.jpg" 
+  },
+  { 
+    id: "14", 
+    title: "CDS 홈페이지 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/cds/img_01.jpg" 
+  },
+  { 
+    id: "15", 
+    title: "대구패션문화페스티벌 홈페이지 제작", 
+    category: "Campaign",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/difacul/img_01.jpg" 
+  },
+  { 
+    id: "16", 
+    title: "평해노인요양원 홈페이지 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/sanatorium/img_01.jpg" 
+  },
+  { 
+    id: "17", 
+    title: "호숫가힐튼펜션 홈페이지 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/hilton/img_01.jpg" 
   },
 ];
 
-const keywords = [
-  "Web Design",
-  "Development",
-  "Identity",
-  "UI/UX Engineering",
-  "Collaboration",
-  "Innovation",
-  "Impact",
-];
-
 export default function Page() {
-  const [activeProject, setActiveProject] = useState(projects[0]);
+  const searchParams = useSearchParams();
+  const urlFilter = searchParams.get("filter") as "All" | "Selected";
 
-  const diskRef = useRef<HTMLDivElement>(null);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const currentRotation = useRef(0);
-  const targetRotation = useRef(0);
-  const velocity = useRef(0);
-  const floatStep = useRef(0);
+  // URL 쿼리에 'filter=All'이 있으면 초기값을 'All'로 설정, 없으면 'Selected'
+  const [filter, setFilter] = useState<"All" | "Selected">(urlFilter || "Selected");
 
+  // URL 쿼리가 변경될 때 상태 동기화
   useEffect(() => {
-    let animationFrameId: number;
+    if (urlFilter) {
+      setFilter(urlFilter);
+    }
+  }, [urlFilter]);
 
-    const animate = () => {
-      animationFrameId = requestAnimationFrame(animate);
+  const filteredProjects = projects.filter((p) => {
+    if (filter === "Selected") return p.status === "Selected";
+    return true;
+  });
 
-      if (!isDragging.current) {
-        targetRotation.current += 0.2; // 천천히 자동 회전
-        velocity.current *= 0.94;
-        targetRotation.current += velocity.current;
-
-        floatStep.current += 0.02;
-        const floatY = Math.sin(floatStep.current) * 8;
-        const tiltX = Math.cos(floatStep.current * 0.8) * 5;
-
-        currentRotation.current +=
-          (targetRotation.current - currentRotation.current) * 0.1;
-
-        if (diskRef.current) {
-          diskRef.current.style.transform = `translateY(${floatY}px) rotateY(${currentRotation.current}deg) rotateX(${tiltX}deg)`;
-        }
-      } else {
-        currentRotation.current +=
-          (targetRotation.current - currentRotation.current) * 0.2;
-
-        if (diskRef.current) {
-          diskRef.current.style.transform = `rotateY(${currentRotation.current}deg)`;
-        }
-      }
-    };
-
-    animate();
-    return () => cancelAnimationFrame(animationFrameId);
-  }, []);
-
-  const handleMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
-    isDragging.current = true;
-    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-    startX.current = clientX;
-    velocity.current = 0;
-  };
-
-  const handleMouseMove = (e: MouseEvent | TouchEvent) => {
-    if (!isDragging.current) return;
-    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-    const deltaX = clientX - startX.current;
-    startX.current = clientX;
-    velocity.current = deltaX * 0.8;
-    targetRotation.current += velocity.current;
-  };
-
-  const handleMouseUp = () => {
-    isDragging.current = false;
-  };
-
-  useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
-    window.addEventListener("touchmove", handleMouseMove);
-    window.addEventListener("touchend", handleMouseUp);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchmove", handleMouseMove);
-      window.removeEventListener("touchend", handleMouseUp);
-    };
-  }, []);
+  const selectedCount = projects.filter((p) => p.status === "Selected").length;
 
   return (
-    <main className="flex flex-col min-h-screen bg-white text-black font-sans antialiased selection:bg-black selection:text-white overflow-x-hidden">
+    <>
+      <link
+        rel="stylesheet"
+        as="style"
+        crossOrigin="anonymous"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+      />
 
-      <section 
-        className="relative min-h-screen flex flex-col justify-between px-6 md:px-12 pt-32 pb-12 select-none overflow-hidden"
-        style={{ perspective: 1200 }}
+      <Header 
+        filter={filter}
+        setFilter={setFilter}
+        totalProjectsCount={projects.length}
+        selectedProjectsCount={selectedCount}
+      />
+
+      <main 
+        className="min-h-screen w-full bg-[#FFFFFF] text-[#111111] antialiased px-6 sm:px-12 py-8 pt-28 select-none flex flex-col justify-between"
+        style={{ fontFamily: "'Monument Grotesk', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif" }}
       >
-        
-        {/* 우측 상단 키워드 리스트 */}
-        <div className="flex justify-end items-start z-10 pt-4 pointer-events-none">
-          <div className="text-right text-lg sm:text-2xl md:text-4xl font-bold tracking-tight leading-snug space-y-1.5 text-zinc-900">
-            {keywords.map((word, idx) => (
-              <p key={idx} className="transition-colors hover:text-zinc-400">{word}</p>
+        <section className="w-full max-w-[1700px] mx-auto py-12 flex-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-16">
+            {filteredProjects.map((project) => (
+              <Link
+                key={project.id}
+                href={`/work/${project.id}`}
+                className="group flex flex-col space-y-4"
+              >
+                <div className="relative w-full aspect-[4/3] bg-zinc-100 rounded-[2rem] overflow-hidden shadow-xs group-hover:shadow-xl transition-all duration-500">
+                  <Image
+                    src={project.img}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  
+                  <div className="absolute top-5 left-5 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-xs flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+                    <span className="text-[11px] font-semibold tracking-tight text-zinc-900">
+                      {project.category}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-baseline px-2">
+                  <h2 className="text-sm sm:text-base font-bold tracking-tight group-hover:opacity-60 transition-opacity">
+                    {project.title}
+                  </h2>
+                  <span className="text-xs text-zinc-400 font-medium">
+                    {project.year}
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
-        </div>
-
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div
-            onMouseDown={handleMouseDown}
-            onTouchStart={handleMouseDown}
-            className="relative w-80 h-80 sm:w-[440px] sm:h-[440px] md:w-[580px] md:h-[580px] flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            <div
-              ref={diskRef}
-              className="w-full h-full relative transition-transform duration-75"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <div className="absolute inset-8 bg-black/20 rounded-3xl blur-3xl transform translate-y-14 pointer-events-none" />
-
-              <div className="w-full h-full bg-zinc-900 rounded-[1.2rem] p-8 md:p-10 shadow-2xl border border-zinc-800 flex flex-col justify-between relative overflow-hidden">
-                
-                <div className="w-full h-40 md:h-44 bg-gradient-to-r from-zinc-300 via-zinc-200 to-zinc-400 rounded-2xl p-4 md:p-5 flex justify-between items-center relative border-b border-zinc-400/50 shadow-inner">
-                  <div className="w-28 md:w-32 h-full bg-zinc-900 rounded-xl border border-zinc-700/80 shadow-inner flex items-center justify-center">
-                    <div className="w-14 md:w-16 h-20 border-2 border-dashed border-zinc-700 rounded-md" />
-                  </div>
-                  <div className="text-right">
-                    <span className="text-xs md:text-sm font-mono font-bold tracking-widest text-zinc-600 block">HD</span>
-                    <span className="text-lg md:text-xl font-mono font-black tracking-tighter text-zinc-800">3.24 MB</span>
-                  </div>
-                </div>
-
-                {/* 쓰기 금지 노치 */}
-                <div className="absolute top-8 right-8 w-6 h-8 bg-zinc-950 rounded-xs border border-zinc-800" />
-
-                {/* 스티커 라벨 */}
-                <div className="w-full h-72 md:h-80 bg-white rounded-2xl p-5 md:p-7 flex flex-col justify-between border-3 border-black shadow-md relative overflow-hidden select-none">
-                  
-                  <div className="space-y-1.5">
-                    <div className="w-full h-4 md:h-5 bg-[#f5b800] rounded-full border-2 border-black" />
-                    <div className="flex justify-between items-center px-1">
-                      <div className="flex gap-0.5 items-center opacity-70">
-                        <div className="w-0.5 h-3 bg-black" />
-                        <div className="w-1 h-3 bg-black" />
-                        <div className="w-0.5 h-3 bg-black" />
-                        <div className="w-1.5 h-3 bg-black" />
-                        <div className="w-0.5 h-3 bg-black" />
-                        <div className="w-1 h-3 bg-black" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="my-auto py-2 space-y-3">
-                    <div className="border-b-2 border-dashed border-zinc-300 pb-1 text-center">
-                      <p className="text-xl sm:text-2xl md:text-3xl font-black tracking-tighter text-black uppercase leading-tight truncate">
-                        Digital experience
-                      </p>
-                    </div>
-
-                    <div className="border-b-2 border-dashed border-zinc-300 pb-1 text-center">
-                      <p className="text-xs md:text-sm text-zinc-600 uppercase tracking-widest">
-                        SINCE 2019 — ARCHIVE
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-end pt-2 border-t-2 border-black text-xs md:text-sm text-black">
-                    <div className="flex flex-col">
-                      <span className="tracking-tight">Saebom Lee</span>
-                    </div>
-                    <div className="flex items-center gap-1.5 bg-black text-white px-2 py-0.5 rounded text-[10px] md:text-xs font-bold tracking-wider">
-                      <span>VERIFIED</span>
-                      <span>✓</span>
-                    </div>
-                  </div>
-
-                </div>
-
-                <div className="absolute bottom-6 left-8 text-zinc-700 text-xl font-bold">
-                  ↑
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-between items-end z-10 pointer-events-none">
-          <div className="text-sm tracking-widest text-zinc-500">
-            Drag to interact!
-          </div>
-          <a href="#works" className="text-2xl md:text-5xl font-black tracking-tighter text-black pointer-events-auto">
-            More ↓
-          </a>
-        </div>
-
-      </section>      
-
-      {/* Selected Works Feed */}
-      <WorkList onHoverProject={(p) => setActiveProject(p)} />
-
-    </main>
-  );
-}
-
-function WorkList({ onHoverProject }: { onHoverProject: (project: typeof projects[0]) => void }) {
-  return (
-    <section id="works" className="px-4 md:px-8 py-20 border-t">
-      <div className="flex justify-between items-end mb-12">
-        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
-          Works
-        </h2>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-        {projects.map((project, idx) => (
-          <FadeIn key={project.id} delay={(idx % 2) * 0.1}>
-            <Link 
-              href={`/work/${project.id}`} 
-              onMouseEnter={() => onHoverProject(project)}
-              className="group block"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden mb-4 bg-gray-200 rounded-sm">
-                <Image 
-                  src={project.img}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="pt-1">
-                <div>
-                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-black">
-                    {project.title}
-                  </h3>
-                </div>
-                <div className="flex gap-1 ">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="text-[14px] bg-white py-0.5 text-gray-600">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Link>
-          </FadeIn>
-        ))}
-      </div>
-      <div className="pt-20 flex justify-center">
-        <Link 
-          href="/work" 
-          className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white  text-sm font-bold uppercase tracking-widest rounded-full hover:bg-zinc-800 transition-all duration-300 shadow-md hover:shadow-xl"
-        >
-          <span>More Works</span>
-          <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-        </Link>
-      </div>
-    </section>
+        </section>
+      </main>
+    </>
   );
 }

@@ -39,6 +39,7 @@ export default function About() {
         </h2>
       </FadeIn> */}
 
+
       <div className="flex flex-col gap-24 md:gap-40">
         {/* 01. Intro Section */}
         <FadeIn>
