@@ -1,213 +1,256 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
-// import Header from "../components/header";
-import Header from "@/components/header";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import FadeIn from "/components/Fadein";
+import { useSearchParams } from "next/navigation";
+// import Header from "@/components/header";
 
-
-// project data
+// 프로젝트 데이터셋
 const projects = [
-  
   { 
     id: "01", 
-    title: "LOUIS QUATORZE 직영몰 상시 퍼블리싱 업무", 
-    tags: ["E-commerce", "2021-2023"],
-    img: "/images/thumbnail/thum_04.png"
+    title: "LOUIS QUATORZE 직영몰 웹퍼블리싱", 
+    category: "E-Commerce",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "Selected",
+    img: "/images/lq/img_thum_01.jpg" 
   },
   { 
     id: "02", 
-    title: "Find your light 3 관련 웹페이지 제작", 
-    tags: ["E-commerce", "2022"],
-    img: "/images/thumbnail/thum_03.png"
+    title: "LOUIS QUATORZE 캠페인페이지 제작", 
+    category: "Campaign",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "Selected",
+    img: "/images/thumbnail/thum_03.png" 
   },
-  // {
-  //   id: "03", 
-  //   title: "Stripes 온라인몰 프론트엔드 개발 및 웹디자인", 
-  //   tags: ["E-commerce", "2022"],
-  //   img: "/images/lq/stripes.jpg"
-  // },
-  {
+  { 
+    id: "03", 
+    title: "Slim9 자사몰 서비스 고도화 및 인프라 관리", 
+    category: "E-Commerce",
+    location: "Seoul, Korea",
+    year: "2023-2025",
+    status: "Selected",
+    img: "/images/slim9/img_p_00.jpg" 
+  },
+  { 
     id: "04", 
-    title: "Slim9 자사몰 서비스 고도화", 
-    tags: ["E-commerce", "Cafe24", "2023-2025"],
-    img: "/images/thumbnail/thum_01.png"
+    title: "Stripes 온라인몰 프론트엔드 전면 개편", 
+    category: "E-Commerce",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "Selected",
+    img: "/images/lq/img_thum_02.jpg" 
   },
   { 
     id: "05", 
-    title: "Slim9 자사몰 프로모션 페이지 UI개발", 
-    tags: ["E-commerce", "Cafe24", "2023-2025"],
-    img: "/images/thumbnail/thum_02.png"
+    title: "LOUIS QUATORZE 직영몰 라이브커머스 방송 구축", 
+    category: "Interactive",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "Selected",
+    img: "/images/lq/live_01.png" 
   },
   { 
     id: "06", 
-    title: "LOUIS QUATORZE 직영몰 라이브커머스 방송 구축", 
-    tags: ["E-commerce", "2023"],
-    img: "/images/thumbnail/thum_05.png"
+    title: "Closetshare UI 개선", 
+    category: "UI/UX",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/thumbnail/thum_cs.png" 
   },
   { 
     id: "07", 
-    title: "LOUIS QUATORZE 직영몰 프론트엔드 리뉴얼", 
-    tags: ["E-commerce", "2021-2022"],
-    img: "/images/thumbnail/thum_lq.png"
+    title: "한림기술 홈페이지 리뉴얼 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/thumbnail/thum_sacon.png" 
   },
   { 
     id: "08", 
-    title: "Closetshare UI 개선", 
-    tags: ["Rental App", "PWA","JSP", "2020-2021"],
-    img: "/images/thumbnail/thum_cs.png"
+    title: "가온평생교육원 홈페이지 유지보수", 
+    category: "Maintenance",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/gaon/img_01.jpg" 
   },
   { 
     id: "09", 
-    title: "한림기술 홈페이지 리뉴얼 제작", 
-    tags: ["Homepage", "2020"],
-    img: "/images/thumbnail/thum_sacon.png"
+    title: "아기세탁소 홈페이지 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/laundry/img_01.jpg" 
   },
   { 
     id: "10", 
-    title: "가온평생교육원 홈페이지 유지보수", 
-    tags: ["Homepage", "2020"],
-    img: "/images/thumbnail/thum_07.png"
+    title: "모든상사 쇼핑몰 제작", 
+    category: "E-Commerce",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/moden/img_01.jpg" 
   },
   { 
     id: "11", 
-    title: "아기세탁소 홈페이지 제작", 
-    tags: ["Homepage", "2020"],
-    img: "/images/thumbnail/thum_08.png"
+    title: "파르베성형외과 홈페이지 리뉴얼", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/farbe/img_01.jpg" 
   },
   { 
     id: "12", 
-    title: "모든상사 쇼핑몰 제작", 
-    tags: ["E-commerce", "Cafe24", "2020"],
-    img: "/images/thumbnail/thum_09.png"
+    title: "유림이엔씨 홈페이지 유지보수", 
+    category: "Maintenance",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/yulim/img_01.jpg" 
   },
   { 
     id: "13", 
-    title: "파르베성형외과 홈페이지 리뉴얼", 
-    tags: ["Homepage", "2019-2020"],
-    img: "/images/thumbnail/thum_10.png"
+    title: "셀럽성형외과 홈페이지 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/celuv/img_01.jpg" 
   },
   { 
     id: "14", 
-    title: "유림이엔씨 홈페이지 유지보수", 
-    tags: ["Homepage", "2019-2020"],
-    img: "/images/thumbnail/thum_yulim2.png"
+    title: "CDS 홈페이지 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/cds/img_01.jpg" 
   },
   { 
     id: "15", 
-    title: "셀럽성형외과 홈페이지 제작", 
-    tags: ["Homepage", "2019"],
-    img: "/images/thumbnail/thum_celuv.png"
+    title: "대구패션문화페스티벌 홈페이지 제작", 
+    category: "Campaign",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/difacul/img_01.jpg" 
   },
   { 
     id: "16", 
-    title: "CDS 홈페이지 제작", 
-    tags: ["Homepage", "2019"],
-    img: "/images/thumbnail/thum_cds.png"
+    title: "평해노인요양원 홈페이지 제작", 
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/sanatorium/img_01.jpg" 
   },
   { 
     id: "17", 
-    title: "대구패션문화페스티벌 홈페이지 제작", 
-    tags: ["Homepage", "2019"],
-    img: "/images/thumbnail/thum_difacul.png"
-  },
-   { 
-    id: "18", 
-    title: "평해노인요양원 홈페이지 제작", 
-    tags: ["Homepage", "2019"],
-    img: "/images/thumbnail/thum_ph.png"
-  },
-  { 
-    id: "19", 
     title: "호숫가힐튼펜션 홈페이지 제작", 
-    tags: ["Homepage", "2019"],
-    img: "/images/thumbnail/thum_hilton2.png"
-  }
+    category: "Website",
+    location: "Seoul, Korea",
+    year: "2021-2023",
+    status: "All",
+    img: "/images/hilton/img_01.jpg" 
+  },
 ];
 
-export default function WorkPage() {
-  const [viewType, setViewType] = useState("gallery");
+function MainContent() {
+  const searchParams = useSearchParams();
+  const rawFilter = searchParams.get("filter");
+
+  const initialFilter: "All" | "Selected" = 
+    rawFilter === "All" || rawFilter === "Selected" ? rawFilter : "Selected";
+
+  const [filter, setFilter] = useState<"All" | "Selected">(initialFilter);
+
+  useEffect(() => {
+    if (rawFilter === "All" || rawFilter === "Selected") {
+      setFilter(rawFilter);
+    }
+  }, [rawFilter]);
+
+  const filteredProjects = projects.filter((p) => {
+    if (filter === "Selected") return p.status === "Selected";
+    return true;
+  });
+
+  const selectedCount = projects.filter((p) => p.status === "Selected").length;
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-1 mx-auto w-full px-6 py-36">
-        <FadeIn>
-        <div className="flex justify-between items-end mb-12">
-          <h2 className="text-5xl font-black uppercase tracking-tighter text-black">Work</h2>
-          {/* toggle */}
-          <div className="flex gap-4 pb-2">
-            <button 
-              onClick={() => setViewType("gallery")}
-              className={`text-sm font-bold ${viewType === "gallery" ? "text-black" : "text-gray-300"}`}
-            >
-              Gallery
-            </button>
-            <button 
-              onClick={() => setViewType("list")}
-              className={`text-sm font-bold ${viewType === "list" ? "text-black" : "text-gray-300"}`}
-            >
-              List
-            </button>
-            
-          </div>
-        </div>
-      </FadeIn>
-        
+    <>
+      <link
+        rel="stylesheet"
+        as="style"
+        crossOrigin="anonymous"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+      />
 
-        {/* gallery */}
-        {viewType === "gallery" && (
-          <FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {projects.map((project) => (
-                <Link href={`/work/${project.id}`} key={project.id} className="group">
-                  <div className="shadow-lg relative aspect-[16/10] overflow-hidden mb-4 bg-gray-100">
-                    <Image 
-                      src={project.img} 
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="px-2 text-black">
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                    <div className="flex gap-2">
-                      {project.tags.map(tag => (
-                        <span key={tag} className="text-xs text-gray-500">⋅{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </FadeIn>
-        )}
+      <Header 
+        filter={filter}
+        setFilter={setFilter}
+        totalProjectsCount={projects.length}
+        selectedProjectsCount={selectedCount}
+      />
 
-        {/* list */}
-        {viewType === "list" && (
-          <FadeIn>
-          <div className="border-t border-current">
-            {projects.map((project) => (
-              <Link href={`/work/${project.id}`} key={project.id} className="group flex items-center justify-between py-5 border-b border-gray-200 hover:bg-orange-400 transition-all px-4">
-                <div className="flex items-center gap-10">
-                  <span className="text-lg text-black">{project.id}</span>
-                  <h3 className="text-2xl font-bold text-black group-hover:translate-x-2 transition-transform">{project.title}</h3>
+      <main 
+        className="min-h-screen w-full bg-[#FFFFFF] text-[#111111] antialiased px-6 sm:px-12 py-8 pt-28 select-none flex flex-col justify-between"
+        style={{ fontFamily: "'Monument Grotesk', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif" }}
+      >
+        <section className="w-full max-w-[1700px] mx-auto py-12 flex-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-16">
+            {filteredProjects.map((project) => (
+              <Link
+                key={project.id}
+                href={`/work/${project.id}?filter=${filter}`}
+                className="group flex flex-col space-y-4"
+              >
+                <div className="relative w-full aspect-[4/3] bg-zinc-100 rounded-[2rem] overflow-hidden shadow-xs group-hover:shadow-xl transition-all duration-500">
+                  <Image
+                    src={project.img}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  
+                  <div className="absolute top-5 left-5 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-xs flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
+                    <span className="text-[11px] font-semibold tracking-tight text-zinc-900">
+                      {project.category}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex gap-2">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="px-4 py-1 border border-current rounded-full text-xs font-medium text-black">{tag}</span>
-                  ))}
+
+                <div className="flex justify-between items-baseline px-2">
+                  <h2 className="text-sm sm:text-base font-bold tracking-tight group-hover:opacity-60 transition-opacity">
+                    {project.title}
+                  </h2>
+                  <span className="text-xs text-zinc-400 font-medium">
+                    {project.year}
+                  </span>
                 </div>
               </Link>
             ))}
           </div>
-          </FadeIn>
-        )}
-
+        </section>
       </main>
-    </div>
+    </>
+  );
+}
+
+// Next.js App Router 필수: useSearchParams 사용 시 Suspense로 감싸주어야 빌드 에러가 나지 않습니다.
+export default function Page() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <MainContent />
+    </Suspense>
   );
 }
