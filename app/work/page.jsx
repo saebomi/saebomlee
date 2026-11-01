@@ -7,6 +7,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "/components/Fadein";
 
+
 // project data
 const projects = [
   
