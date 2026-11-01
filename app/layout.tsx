@@ -14,7 +14,6 @@ export default function RootLayout({
             <body>
                 <Cursor /> 
                 <ThemeProvider>
-                    <Header />
                     <main>{children}</main>
                     <Footer />
                 </ThemeProvider>
