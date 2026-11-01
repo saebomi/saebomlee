@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation"; // 쿼리 파라미터 읽기용 임포트
-import Header from "../components/header";
+// import Header from "../components/header";
 
 const projects = [
   { 
