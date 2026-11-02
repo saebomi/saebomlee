@@ -18,7 +18,7 @@ interface ProjectInfo {
 
 // 프로젝트 데이터셋 객체 (01 ~ 17)
 const projectData: { [key: string]: ProjectInfo } = {
-   "01": {
+   "03": {
     title: "Slim9 자사몰 서비스 고도화 및 인프라 관리",
     client: "Slim9",
     year: "2023-2025",
@@ -32,7 +32,7 @@ const projectData: { [key: string]: ProjectInfo } = {
     bg: "/images/slim9/bg_01.jpg",
     img: ["/images/slim9/img_p_00.jpg","/images/slim9/img_p_05.jpg","/images/slim9/img_p_03.jpg","/images/slim9/img_p_02.png","/images/slim9/img_p_04.png"],
   },
-  "02": {
+  "01": {
     title: "LOUIS QUATORZE 직영몰 상시 퍼블리싱 업무",
     client: "LOUIS QUATORZE",
     year: "2021-2023",
@@ -46,7 +46,7 @@ const projectData: { [key: string]: ProjectInfo } = {
     bg: "/images/lq/bg.jpg",
     img: ["/images/lq/img_p_03.png", "/images/lq/img_p_04.png","/images/lq/img_p_01.jpg", "/images/lq/img_p_02.jpg"],
   },
-  "03": {
+  "02": {
     title: "Find your light3 캠페인페이지 제작",
     client: "LOUIS QUATORZE",
     year: "2023",
